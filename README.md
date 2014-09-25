@@ -60,6 +60,10 @@ Simple and quick cheatsheet.
 
 **%** Go to match parenthesis, bracket or similar
 
+**^F**: scroll page up
+
+**^B**: scroll page down
+
 ## Tags
 
 How to generate tags:

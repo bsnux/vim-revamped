@@ -55,6 +55,7 @@ set mouse=a
 set mousehide
 set hidden
 set autoread
+set noswapfile
 
 set showmatch                   " Show matching brackets/parenthesis
 set incsearch                   " Find as you type search
