@@ -168,9 +168,15 @@ imap <C-b> <esc>hi
 imap <C-f> <esc>lli
 
 " Python linters
-let g:pymode_lint_checker = "pyflakes,pep8"
+"let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 let g:pymode_utils_whitespaces = 0
 let g:pymode_options = 0
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_ignore = "E501,C0110,C0301"
+let g:pymode_lint_cwindow = 0
+let g:syntastic_python_flake8_args='--ignore=E501,E225'
+let g:syntastic_python_pylint_args='--ignore=E501,E225'
 
 " Copy filename abs path on current buffer to clipboard
 nnoremap <leader>cp :let @+ = expand("%:p")<CR>
