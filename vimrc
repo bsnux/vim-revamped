@@ -329,4 +329,5 @@ endif
 " especially when splits are used.
 set completeopt-=preview
 
-
+" JavaScript indentation
+au FileType javascript setl sw=2 sts=2
