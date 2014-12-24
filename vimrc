@@ -41,7 +41,10 @@ Bundle 'Shougo/neosnippet'
 Bundle 'honza/vim-snippets'
 Bundle 'Shougo/neosnippet-snippets'
 Bundle 'tpope/vim-surround'
-Bundle 'spf13/vim-autoclose'
+Bundle 'Raimondi/delimitMate'
+"Bundle 'spf13/vim-autoclose'
+Bundle 'morhetz/gruvbox'
+Bundle 'editorconfig/editorconfig-vim'
 
 " End Bundles list
 
@@ -126,25 +129,27 @@ augroup END
 " end Restore cursor to file position in previous editing session
 
 " airline
-"let g:airline_powerline_fonts=1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-" If the previous symbols do not render for you then install a
-" powerline enabled font.
+let g:airline_powerline_fonts=1
+""if !exists('g:airline_symbols')
+""  let g:airline_symbols = {}
+""endif
+"" If the previous symbols do not render for you then install a
+"" powerline enabled font.
 set laststatus=2
 let g:airline_theme = 'powerlineish'
-if !exists('g:airline_powerline_fonts')
-    " Use the default set of separators with a few customizations
-    let g:airline_left_sep='›'  " Slightly fancier than '>'
-    let g:airline_right_sep='‹' " Slightly fancier than '<'
-endif
-set statusline=%<%f\                     " Filename
-set statusline+=%w%h%m%r                 " Options
-set statusline+=%{fugitive#statusline()} " Git Hotness
-set statusline+=\ [%{&ff}/%Y]            " Filetype
-set statusline+=\ [%{getcwd()}]          " Current dir
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+"let g:airline_theme = 'powerlineish'
+"if !exists('g:airline_powerline_fonts')
+"    " Use the default set of separators with a few customizations
+"    let g:airline_left_sep='›'  " Slightly fancier than '>'
+"    let g:airline_right_sep='‹' " Slightly fancier than '<'
+"endif
+"set statusline=%<%f\                     " Filename
+"set statusline+=%w%h%m%r                 " Options
+"set statusline+=%{fugitive#statusline()} " Git Hotness
+"set statusline+=\ [%{&ff}/%Y]            " Filetype
+"set statusline+=\ [%{getcwd()}]          " Current dir
+"set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+"let g:airline#extensions#tabline#enabled = 1
 
 
 " Vertical line after line 80
@@ -175,8 +180,10 @@ let g:pymode_options = 0
 let g:pymode_lint_on_write = 1
 let g:pymode_lint_ignore = "E501,C0110,C0301"
 let g:pymode_lint_cwindow = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_python_flake8_args='--ignore=E501,E225'
 let g:syntastic_python_pylint_args='--ignore=E501,E225'
+let g:pymode_rope=0
 
 " Copy filename abs path on current buffer to clipboard
 nnoremap <leader>cp :let @+ = expand("%:p")<CR>
@@ -233,18 +240,17 @@ if gitroot != ''
     let &tags = &tags . ',' . gitroot . '/.git/tags'
 endif
 
-" NerdTree
+" NerdTree & NerdTree Tabs
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+"map <C-e> <plug>NERDTreeTabsToggle<CR>
 map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
-
-let NERDTreeShowBookmarks=1
+"let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
+"let NERDTreeChDirMode=0
+"let NERDTreeQuitOnOpen=1
+"let NERDTreeMouseMode=2
+"let NERDTreeShowHidden=1
+"let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " vim-gitgutter

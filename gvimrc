@@ -1,7 +1,25 @@
 colorscheme bsnux
 
-"set guifont=Monaco:h14
-set guifont=Menlo:h14
+"set guifont=Monaco:h13
+"set guifont=Menlo:h13
+
+" Powerline fonts https://github.com/powerline/fonts
+"set guifont=Anonymous\ Pro\ for\ Powerline:h15
+"set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+set guifont=Inconsolata\ for\ Powerline:h16
+"set guifont=Inconsolata-dz\ for\ Powerline:h14
+"set guifont=Inconsolata-g\ for\ Powerline:h14
+"set guifont=Liberation\ Mono\ for\ Powerline:h14
+"set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline:h14
+"set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h14
+"set guifont=Meslo\ LG\ L\ for\ Powerline:h14
+"set guifont=Meslo\ LG\ M\ for\ Powerline:h14
+"set guifont=Meslo\ LG\ S\ for\ Powerline:h14
+"set guifont=Meslo\ LG\ S\ DZ\ for\ Powerline:h14
+"set guifont=Monofur\ for\ Powerline:h15
+"set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+"set guifont=Ubuntu\ Mono\ derivative\ Powerline:h15
 
 " keybindings
 nnoremap <D-Left> :bprev<CR>
