@@ -130,27 +130,9 @@ augroup END
 
 " airline
 let g:airline_powerline_fonts=1
-""if !exists('g:airline_symbols')
-""  let g:airline_symbols = {}
-""endif
-"" If the previous symbols do not render for you then install a
-"" powerline enabled font.
 set laststatus=2
 let g:airline_theme = 'powerlineish'
-"let g:airline_theme = 'powerlineish'
-"if !exists('g:airline_powerline_fonts')
-"    " Use the default set of separators with a few customizations
-"    let g:airline_left_sep='›'  " Slightly fancier than '>'
-"    let g:airline_right_sep='‹' " Slightly fancier than '<'
-"endif
-"set statusline=%<%f\                     " Filename
-"set statusline+=%w%h%m%r                 " Options
-"set statusline+=%{fugitive#statusline()} " Git Hotness
-"set statusline+=\ [%{&ff}/%Y]            " Filetype
-"set statusline+=\ [%{getcwd()}]          " Current dir
-"set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-"let g:airline#extensions#tabline#enabled = 1
-
+let g:airline#extensions#tabline#enabled = 1
 
 " Vertical line after line 80
 set colorcolumn=81
