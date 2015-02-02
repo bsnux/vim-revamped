@@ -45,6 +45,7 @@ Bundle 'Raimondi/delimitMate'
 "Bundle 'spf13/vim-autoclose'
 Bundle 'morhetz/gruvbox'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'fatih/vim-go'
 
 " End Bundles list
 
@@ -90,11 +91,16 @@ set foldlevel=99
 
 set background=dark         " Assume a dark background
 
-colorscheme bsnux
+"colorscheme bsnux
+"colorscheme darcula
+colorscheme bsnux_darcula
 
 filetype plugin indent on   " Automatically detect file types.
 
 set cursorline                  " Highlight current line
+
+" Ignoring some files
+set wildignore+=*.pyc,*.DS_Store
 
 " Key (re)Mappings
 let mapleader = ','
@@ -184,6 +190,10 @@ let g:ctrlp_user_command = {
     \ },
     \ 'fallback': 'find %s -type f'
 \ }
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
 " TagBar
 nnoremap <silent> <leader>tt :TagbarToggle<CR>

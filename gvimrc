@@ -1,14 +1,17 @@
-colorscheme bsnux
+"colorscheme darcula
+colorscheme bsnux_darcula
 
 "set guifont=Monaco:h13
 "set guifont=Menlo:h13
 
 " Powerline fonts https://github.com/powerline/fonts
+"set guifont=Inconsolata\ for\ Powerline:h16
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+
+
 "set guifont=Anonymous\ Pro\ for\ Powerline:h15
-"set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
 "set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
-set guifont=Inconsolata\ for\ Powerline:h16
-"set guifont=Inconsolata-dz\ for\ Powerline:h14
+"set guifont=Inconsolat-dz\ for\ Powerline:h14
 "set guifont=Inconsolata-g\ for\ Powerline:h14
 "set guifont=Liberation\ Mono\ for\ Powerline:h14
 "set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline:h14
