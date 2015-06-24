@@ -91,10 +91,6 @@ set foldlevel=99
 
 set background=dark         " Assume a dark background
 
-"colorscheme bsnux
-"colorscheme darcula
-colorscheme bsnux_darcula
-
 filetype plugin indent on   " Automatically detect file types.
 
 set cursorline                  " Highlight current line
@@ -135,6 +131,7 @@ augroup END
 " end Restore cursor to file position in previous editing session
 
 " airline
+" How to patch Monoca for OSX: https://gist.github.com/tonyseek/9636400
 let g:airline_powerline_fonts=1
 set laststatus=2
 let g:airline_theme = 'powerlineish'
@@ -196,6 +193,7 @@ let g:ctrlp_prompt_mappings = {
     \ }
 
 " TagBar
+" Open tab bar with <Leader>tt
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 " Fugitive
@@ -211,6 +209,7 @@ nnoremap <silent> <leader>ge :Gedit<CR>
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 
 " Setting Easy Motion colors right on console
+" Start Easy Motion with ,,w
 let g:EasyMotion_do_shade = 0
 hi EasyMotionShade ctermfg=white ctermbg=red
 
@@ -223,7 +222,7 @@ cmap w!! w !sudo tee % >/dev/null
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
-" Ctags {
+" Ctags. Got to tag: ctrl + ]   Come back: ctrl + T 
 set tags=./tags;/,~/.vimtags
 
 " Make tags placed in .git/tags file available in all levels of a repository
@@ -329,3 +328,25 @@ set completeopt-=preview
 
 " JavaScript indentation
 au FileType javascript setl sw=2 sts=2
+
+colorscheme bsnux_darcula
+"colorscheme molokai
+
+" Avoiding cron file edition on OSX
+autocmd filetype crontab setlocal nobackup nowritebackup
+
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+" Change cursor shape between insert and normal mode in iTerm2.app
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
