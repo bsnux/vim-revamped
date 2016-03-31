@@ -46,6 +46,8 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'morhetz/gruvbox'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'fatih/vim-go'
+Bundle 'chriskempson/base16-vim'
+Bundle 'tpope/vim-rails'
 
 " End Bundles list
 
@@ -142,10 +144,11 @@ set colorcolumn=81
 
 scriptencoding utf-8
 
-" 2 indentation spaces for HTML && CSS files
+" 2 indentation spaces for HTML, CSS and Ruby files
 autocmd FileType html setl ts=2 sts=2 sw=2
 autocmd FileType htmldjango setl ts=2 sts=2 sw=2
 autocmd FileType css setl ts=2 sts=2 sw=2
+autocmd FileType ruby setl ts=2 sts=2 sw=2
 
 " Simple Emacs Keybindings
 "   map CTRL-e to end-of-line (insert mode)
@@ -329,9 +332,6 @@ set completeopt-=preview
 " JavaScript indentation
 au FileType javascript setl sw=2 sts=2
 
-colorscheme bsnux_darcula
-"colorscheme molokai
-
 " Avoiding cron file edition on OSX
 autocmd filetype crontab setlocal nobackup nowritebackup
 
@@ -350,3 +350,23 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" Backspace wasn't working so we need to use next line
+set backspace=2
+
+" base16 colors plugins: Access colors present in " 256 colorspace
+let base16colorspace=256
+
+
+" Colorscheme
+colorscheme bsnux_darcula
+"colorscheme molokai
+"colorscheme monokai
+"colorscheme base16-monokai
+"colorscheme base16-railscasts
+
+" Assuming a dark background
+set background=dark
+
+" Keymap cheatsheet
+" ci': Change inner quotes

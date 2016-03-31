@@ -6,8 +6,9 @@ colorscheme bsnux_darcula
 
 " Powerline fonts https://github.com/powerline/fonts
 "set guifont=Inconsolata\ for\ Powerline:h16
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+"set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
 
+set gfn=Menlo\ for\ Powerline:h11.5
 
 "set guifont=Anonymous\ Pro\ for\ Powerline:h15
 "set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
@@ -35,7 +36,7 @@ set transparency=0
 iunmenu File.Save
 imenu <silent> File.Save <Esc>:if expand("%") == ""<Bar>browse confirm w<Bar>else<Bar>confirm w<Bar>endif<CR>
 
-" Selected region
+ "Selected region
 hi Visual guibg=#787878 gui=none
 
 " Toggle comments
