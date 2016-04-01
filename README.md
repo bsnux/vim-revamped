@@ -98,6 +98,12 @@ How to install **exuberant-ctags**:
 
 **C** Commit added file/files
 
+## Copying from system clipboard on terminal
+
+```
+:put +
+```
+
 ## Misc
 
 **Ctrl-[** ESC
