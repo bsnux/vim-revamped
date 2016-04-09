@@ -104,6 +104,12 @@ How to install **exuberant-ctags**:
 :put +
 ```
 
+## Multipe-cursors
+
+*Ctrl-n* will activate multiple-cursors. Every time you click that sequence a
+new selection will be marked. Then click *c*, insert your text, click on *Esc* and
+all occurrences will be replaced.
+
 ## Misc
 
 **Ctrl-[** ESC
