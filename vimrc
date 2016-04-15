@@ -14,7 +14,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'flazz/vim-colorschemes'
@@ -48,6 +49,7 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'fatih/vim-go'
 Bundle 'chriskempson/base16-vim'
 Bundle 'tpope/vim-rails'
+Bundle 'davidhalter/jedi-vim'
 
 " End Bundles list
 
