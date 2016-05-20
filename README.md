@@ -110,6 +110,12 @@ How to install **exuberant-ctags**:
 new selection will be marked. Then click *c*, insert your text, click on *Esc* and
 all occurrences will be replaced.
 
+## Spell-checking
+
+```
+:setlocal spell spelllang=en_us
+```
+
 ## Misc
 
 **Ctrl-[** ESC
