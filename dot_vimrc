@@ -1,0 +1,104 @@
+" ====== Vundle initial conf
+
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'jnurmine/Zenburn'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Plugins list here
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
+
+" ====== End Vundle initial conf
+
+" ====== Personal conf 
+
+set nu
+syntax on
+set encoding=utf-8
+set noswapfile
+
+set mouse=a
+
+set colorcolumn=81
+
+let mapleader = ','
+
+set background=dark
+colorscheme zenburn
+
+set splitright
+
+" Accesing to system clipboard on Mac
+set clipboard=unnamed
+
+" Python indentation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+" Web development indentation
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2
+
+" Flagging Unnecessary Whitespace
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufNewFile,BufRead *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Enable folding and using `space` key for it
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+
+" Python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" ====== End personal conf 
+
+" ====== Plugins conf 
+
+let g:SimpylFold_docstring_preview=1
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+
+let python_highlight_all=1
+
+" ====== End Plugins conf 
