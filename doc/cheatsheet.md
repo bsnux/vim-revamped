@@ -82,7 +82,7 @@ Usefull commands:
 ## Copying from system clipboard on terminal
 
 ```
-:put +
+:put+
 ```
 
 ## Multipe-cursors

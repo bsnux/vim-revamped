@@ -2,6 +2,8 @@
 
 Tested on *Mac OS X* with *Vim*, *MacVim* and *VimR*
 
+Working with *Vim 8.0*
+
 ## Installation
 
 Clone this repo. to your favorite location:
@@ -18,7 +20,7 @@ Setup *Vundle*:
 
 Create *symlinks*:
 
-    $ ln -s vim-revamped/vimrc ~/.vimrc
+    $ ln -s vim-revamped/dot_vimrc~/.vimrc
     $ ln -s vim-revamped/gvimrc ~/.gvimrc
 
 Open *Vim* and launch plugin installation:
