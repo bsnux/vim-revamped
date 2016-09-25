@@ -20,6 +20,12 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'craigemery/vim-autotag'
 
 " Plugins list here
 
@@ -36,6 +42,8 @@ syntax on
 set encoding=utf-8
 set noswapfile
 
+let python_highlight_all=1
+
 set mouse=a
 
 set colorcolumn=81
@@ -46,6 +54,9 @@ set background=dark
 colorscheme zenburn
 
 set splitright
+
+" `delete` key shoud delete a char
+set backspace=2
 
 " Accesing to system clipboard on Mac
 set clipboard=unnamed
@@ -75,6 +86,26 @@ set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
 
+" Find merge conflict markers
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR><Paste>
+
+" Emacs keybiding for insert mode
+imap <C-e> <esc>$a
+imap <C-a> <esc>0i
+imap <C-b> <esc>hi
+imap <C-f> <esc>lli
+
+" Change cursor shape in different modes: OSX iTerm2:
+" http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
+" https://gist.github.com/andyfowler/1195581
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 
 " Python with virtualenv support
 py << EOF
@@ -94,11 +125,9 @@ let g:SimpylFold_docstring_preview=1
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 
-let python_highlight_all=1
 
 " ====== End Plugins conf 
