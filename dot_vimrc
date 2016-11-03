@@ -9,6 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
+" Plugins list here
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
@@ -24,8 +25,9 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'craigemery/vim-autotag'
-
-" Plugins list here
+Plugin 'jdkanani/vim-material-theme'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdcommenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -144,6 +146,12 @@ function! ToggleVExplorer()
   endif
 endfunction
 map <silent> <C-E> :call ToggleVExplorer()<CR>
+
+" Smart window navigation
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+nmap <C-h> <C-w>h
 
 " ====== End personal conf 
 
