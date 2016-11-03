@@ -20,7 +20,7 @@ Setup *Vundle*:
 
 Create *symlinks*:
 
-    $ ln -s vim-revamped/dot_vimrc~/.vimrc
+    $ ln -s vim-revamped/dot_vimrc ~/.vimrc
     $ ln -s vim-revamped/gvimrc ~/.gvimrc
 
 Open *Vim* and launch plugin installation:
