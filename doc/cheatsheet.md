@@ -62,6 +62,8 @@ Usefull commands:
 * `:tn` Move to next definition
 * `:tp` Move to previous definition
 * `,g`: Jump to definition or declaration (*YouCompletMe* plugin)
+* `Ctrl-o`: Jump back from definition or declaration (*YouCompletMe* plugin)
+* `Ctrl-i`: Jump again to definition or declaration (*YouCompletMe* plugin)
 * `Ctrl-]`: Jump to definition
 * `Ctrl-t`: Jump back from definition
 * `:Tagbar`: Open tag bar
