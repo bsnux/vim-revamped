@@ -20,7 +20,7 @@
 * `e`: Move to end of current word
 * `%`: Go to match parenthesis, bracket or similar
 * `H`: Go to top of the screen
-* `L`: Go to bottom of the screen 
+* `L`: Go to bottom of the screen
 * `M`: Go to medium of the screen
 
 ## Tags
@@ -45,7 +45,7 @@ You can ignore some folders globally, adding following lines to your `~/.ctags` 
 Generating tags for current folder:
 
 ```
-$ ctags . 
+$ ctags .
 ```
 
 Ignoring generated `tags` file globally:
@@ -92,6 +92,20 @@ Usefull commands:
 `Ctrl-n` will activate multiple-cursors. Every time you click that sequence a
 new selection will be marked. Then click `c`, insert your text, click on `Esc` and
 all occurrences will be replaced.
+
+## Remote editing
+
+```
+$ vim scp://username@host//path/to/file
+```
+
+## Macros
+
+1. Start recording by pressing `q`, followed by a lower case character to name the macro
+2. Perform any editing actions inside editor, which will be recorded
+3. Stop recording by pressing `q`
+4. Play the recorded macro by pressing `@` followed by the macro name
+5. To repeat macros multiple times, press `:nn @macro_name`. ``nn`` is a number
 
 ## Misc
 

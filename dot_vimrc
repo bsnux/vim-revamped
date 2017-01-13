@@ -28,6 +28,8 @@ Plugin 'jdkanani/vim-material-theme'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -73,7 +75,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 " Web development indentation
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile,BufRead *.js
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
@@ -154,6 +156,32 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nmap <C-h> <C-w>h
 
+" Emacs keys for command line
+cnoremap <C-A>		<Home>
+cnoremap <C-B>		<Left>
+cnoremap <C-D>		<Del>
+cnoremap <C-E>		<End>
+cnoremap <C-F>		<Right>
+
+" Tabnew shortcut
+ca tn tabnew
+
+" Move to buffers
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+
+" Google yapf
+function! YAPF() range
+  let l:line_ranges = a:firstline . '-' . a:lastline
+  let l:cmd = 'yapf --lines=' . l:line_ranges
+  let l:formatted_text = system(l:cmd, join(getline(1, '$'), "\n") . "\n")
+  execute '1,' . string(line('$')) . 'delete'
+  call setline(1, split(l:formatted_text, "\n"))
+  call cursor(a:firstline, 1)
+endfunction
+
+map <leader>y :call YAPF()<cr>
+
 " ====== End personal conf 
 
 " ====== Plugins conf 
@@ -164,10 +192,13 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
 " The default setting of 'laststatus' is for the statusline to not appear until
 " a split is created. If you want it to appear all the time, you need
 " following line
 set laststatus=2
 
+let g:UltiSnipsExpandTrigger="<c-space>"
 
 " ====== End Plugins conf 
