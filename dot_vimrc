@@ -16,7 +16,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
@@ -24,12 +24,22 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'craigemery/vim-autotag'
-Plugin 'jdkanani/vim-material-theme'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'gilsondev/vim-monokai'
+Plugin 'edliaw/vim-python'
+" Color schemes
+Plugin 'jdkanani/vim-material-theme'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'morhetz/gruvbox'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'gregsexton/Muon'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -44,6 +54,8 @@ syntax on
 set encoding=utf-8
 set noswapfile
 
+set autoread
+
 let python_highlight_all=1
 
 set mouse=a
@@ -52,9 +64,12 @@ set colorcolumn=81
 
 let mapleader = ','
 
-set background=dark
-"colorscheme zenburn
-colorscheme solarized
+" set background=dark
+" colorscheme zenburn
+" colorscheme solarized
+colorscheme muon
+
+let g:airline_theme='molokai'
 
 set splitright
 
@@ -63,6 +78,13 @@ set backspace=2
 
 " Accesing to system clipboard on Mac
 set clipboard=unnamed
+
+" Highlight current line
+set cursorline
+
+" set 256 colors
+set t_Co=256
+
 
 " Python indentation
 au BufNewFile,BufRead *.py
@@ -125,8 +147,8 @@ set hlsearch
 
 " netrw - the Vim 8 directory browser
 let g:netrw_liststyle = 3
-"     open file in new tab
-let g:netrw_browse_split = 3
+"     open file in new vertical split
+let g:netrw_browse_split = 2
 let g:netrw_list_hide='.*\.swp$,.*\.pyc,*\~$,*\.swo$,*\.swp$,*\.git,.\git,*\.hg,*\.svn,*\.bzr,.\DStore,.\idea,.\build'
 let g:netrw_winsize = 25
 "     toggle Vexplore with Ctrl-E
@@ -182,6 +204,11 @@ endfunction
 
 map <leader>y :call YAPF()<cr>
 
+augroup filetypedetect
+    au BufRead,BufNewFile dev-server setfiletype python
+    au BufRead,BufNewFile app-server setfiletype python
+augroup END
+
 " ====== End personal conf 
 
 " ====== Plugins conf 
@@ -200,5 +227,8 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 set laststatus=2
 
 let g:UltiSnipsExpandTrigger="<c-space>"
+
+" Ctrlpvim: Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " ====== End Plugins conf 
