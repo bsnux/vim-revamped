@@ -143,3 +143,4 @@ $ vim scp://username@host//path/to/file
 
 * `:retab`: Replace tabs for spaces
 * `,fc`: Searching for conflict markers
+* `,y`: Google YAPF code formater
