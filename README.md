@@ -30,6 +30,33 @@ Open *Vim* and launch plugin installation:
 
 Done!
 
+## Using italics in Terminal
+
+See: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/
+
+Basically, you have to use a font with support for italics and follow these steps:
+
+Add the following lines to `~/.xterm-256color-italic.terminfo` file:
+
+```
+# A xterm-256color based TERMINFO that adds the escape sequences for italic.
+xterm-256color-italic|xterm with 256 colors and italic,
+  sitm=\E[3m, ritm=\E[23m,
+  use=xterm-256color,
+```
+
+Then execute the following command:
+
+```
+tic xterm-256color-italic.terminfo
+```
+
+Next step will be to add following line to your profile file (`~/.zshrc` or similar):
+
+```
+export TERM=xterm-256color-italic
+```
+
 # Vim cheatsheet
 
 ## Buffers
