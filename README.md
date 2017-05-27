@@ -1,36 +1,26 @@
 # Personal vim configuration
 
-Tested on *Mac OS X* with *Vim*, *MacVim* and *VimR*
-
-Working with *Vim 8.0*
+*Vim 8.0* personal configuration optimized for *Python* development.
 
 ## Installation
 
 Clone this repo. to your favorite location:
 
-    $ git clone https://github.com/bsnux/vim-revamped.git
+```
+$ git clone https://github.com/bsnux/vim-revamped.git
+```
 
-Create directories:
+Create *symlinks* on your *HOME* dir:
 
-    $ mkdir -p ~/.vim/bundle
+```
+ln -s vim-revamped/vimrc ~/.vimrc 
+mkdir ~/.vim
+ln -s vim-revamped/UltiSnips ~/.vim/UltiSnips
+ln -s vim-revamped/after ~/.vim/after
+ln -s vim-revamped/pack ~/.vim/pack
+```
 
-Setup *Vundle*:
-
-    $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-Create *symlinks*:
-
-    $ ln -s vim-revamped/dot_vimrc ~/.vimrc
-    $ ln -s vim-revamped/gvimrc ~/.gvimrc
-
-Open *Vim* and launch plugin installation:
-
-    $ vim
-    :PluginInstall
-
-Done!
-
-## Using italics in Terminal
+## Using italics in Terminal and iterm2
 
 See: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/
 
