@@ -10,14 +10,22 @@ Clone this repo. to your favorite location:
 $ git clone https://github.com/bsnux/vim-revamped.git
 ```
 
+Update submodules:
+
+```
+$ cd vim-revamped
+$ git submodule init
+$ git submodule update
+```
+
 Create *symlinks* on your *HOME* dir:
 
 ```
-ln -s vim-revamped/vimrc ~/.vimrc 
-mkdir ~/.vim
-ln -s vim-revamped/UltiSnips ~/.vim/UltiSnips
-ln -s vim-revamped/after ~/.vim/after
-ln -s vim-revamped/pack ~/.vim/pack
+$ ln -s vim-revamped/vimrc ~/.vimrc 
+$ mkdir ~/.vim
+$ ln -s vim-revamped/UltiSnips ~/.vim/UltiSnips
+$ ln -s vim-revamped/after ~/.vim/after
+$ ln -s vim-revamped/pack ~/.vim/pack
 ```
 
 ## Using italics in Terminal and iterm2
