@@ -1,53 +1,6 @@
-" ====== Vundle initial conf
+" ====== Main conf
 
 set nocompatible
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
-" Plugins list here
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'craigemery/vim-autotag'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'gilsondev/vim-monokai'
-Plugin 'edliaw/vim-python'
-" Color schemes
-Plugin 'jdkanani/vim-material-theme'
-Plugin 'jpo/vim-railscasts-theme'
-Plugin 'morhetz/gruvbox'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'gregsexton/Muon'
-
-" All of your Plugins must be added before the following line
-call vundle#end()
-filetype plugin indent on
-
-" ====== End Vundle initial conf
-
-" ====== Personal conf 
 
 set nu
 syntax on
@@ -56,22 +9,15 @@ set noswapfile
 
 set autoread
 
-let python_highlight_all=1
-
 set mouse=a
 
 set colorcolumn=81
 
 let mapleader = ','
 
-" set background=dark
-" colorscheme zenburn
-" colorscheme solarized
-colorscheme muon
-
-let g:airline_theme='molokai'
-
 set splitright
+
+set laststatus=2
 
 " `delete` key shoud delete a char
 set backspace=2
@@ -85,6 +31,51 @@ set cursorline
 " set 256 colors
 set t_Co=256
 
+" Highligthing searching
+set hlsearch
+
+" Emacs keys for command line
+cnoremap <C-A>	<Home>
+cnoremap <C-B>	<Left>
+cnoremap <C-D>	<Del>
+cnoremap <C-E>	<End>
+cnoremap <C-F>	<Right>
+
+" Tabnew shortcut
+ca tn tabnew
+
+" netrw - the Vim 8 directory browser
+let g:netrw_liststyle = 3
+"     open file in new vertical split
+let g:netrw_browse_split = 2
+let g:netrw_list_hide='.*\.swp$,.*\.pyc,*\~$,*\.swo$,*\.swp$,*\.git,.\git,*\.hg,*\.svn,*\.bzr,.\DStore,.\idea,.\build'
+let g:netrw_winsize = 25
+"     toggle Vexplore with Ctrl-E
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+map <silent> <C-E> :call ToggleVExplorer()<CR>
+
+" Smart window navigation
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+nmap <C-h> <C-w>h
 
 " Python indentation
 au BufNewFile,BufRead *.py
@@ -132,67 +123,13 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" Python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+" Templates w/ Django syntax
+augroup filetypedetect
+    au BufRead,BufNewFile dev-server setfiletype python
+    au BufRead,BufNewFile app-server setfiletype python
+augroup END
 
-" Highligthing searching
-set hlsearch
-
-" netrw - the Vim 8 directory browser
-let g:netrw_liststyle = 3
-"     open file in new vertical split
-let g:netrw_browse_split = 2
-let g:netrw_list_hide='.*\.swp$,.*\.pyc,*\~$,*\.swo$,*\.swp$,*\.git,.\git,*\.hg,*\.svn,*\.bzr,.\DStore,.\idea,.\build'
-let g:netrw_winsize = 25
-"     toggle Vexplore with Ctrl-E
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-      let expl_win_num = bufwinnr(t:expl_buf_num)
-      if expl_win_num != -1
-          let cur_win_nr = winnr()
-          exec expl_win_num . 'wincmd w'
-          close
-          exec cur_win_nr . 'wincmd w'
-          unlet t:expl_buf_num
-      else
-          unlet t:expl_buf_num
-      endif
-  else
-      exec '1wincmd w'
-      Vexplore
-      let t:expl_buf_num = bufnr("%")
-  endif
-endfunction
-map <silent> <C-E> :call ToggleVExplorer()<CR>
-
-" Smart window navigation
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-nmap <C-h> <C-w>h
-
-" Emacs keys for command line
-cnoremap <C-A>		<Home>
-cnoremap <C-B>		<Left>
-cnoremap <C-D>		<Del>
-cnoremap <C-E>		<End>
-cnoremap <C-F>		<Right>
-
-" Tabnew shortcut
-ca tn tabnew
-
-" Move to buffers
-nmap <leader>l :bnext<CR>
-nmap <leader>h :bprevious<CR>
-
-" Google yapf
+" Google yapf Python formattert
 function! YAPF() range
   let l:line_ranges = a:firstline . '-' . a:lastline
   let l:cmd = 'yapf --lines=' . l:line_ranges
@@ -204,31 +141,19 @@ endfunction
 
 map <leader>y :call YAPF()<cr>
 
-augroup filetypedetect
-    au BufRead,BufNewFile dev-server setfiletype python
-    au BufRead,BufNewFile app-server setfiletype python
-augroup END
+"" ====== Plugins conf 
 
-" ====== End personal conf 
+colorscheme monokai
 
-" ====== Plugins conf 
-
-let g:SimpylFold_docstring_preview=1
-
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-" The default setting of 'laststatus' is for the statusline to not appear until
-" a split is created. If you want it to appear all the time, you need
-" following line
-set laststatus=2
-
-let g:UltiSnipsExpandTrigger="<c-space>"
 
 " Ctrlpvim: Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" ====== End Plugins conf 
+" Running linters only when files are saved
+let g:ale_lint_on_text_changed = 'never'
+
+" Using <c-space> for snippets " because <tab> is used by YouCompleteMe 
+let g:UltiSnipsExpandTrigger="<c-space>"
