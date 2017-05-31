@@ -152,8 +152,18 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Ctrlpvim: Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+" Ctrlpvim: Fuzzy search on open buffers
+nmap <Leader>b :CtrlPBuffer<CR>
+
+" Ctrlpvim: Open files in new tab
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
+
 " Running linters only when files are saved
 let g:ale_lint_on_text_changed = 'never'
 
 " Using <c-space> for snippets " because <tab> is used by YouCompleteMe 
 let g:UltiSnipsExpandTrigger="<c-space>"
+
