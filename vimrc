@@ -23,7 +23,9 @@ set laststatus=2
 set backspace=2
 
 " Accesing to system clipboard on Mac
-set clipboard=unnamed
+if $TMUX == ''
+    set clipboard=unnamed
+endif
 
 " Highlight current line
 set cursorline
@@ -33,6 +35,9 @@ set t_Co=256
 
 " Highligthing searching
 set hlsearch
+
+" Highligthing incremental searching
+set incsearch
 
 " Emacs keys for command line
 cnoremap <C-A>	<Home>
@@ -93,6 +98,12 @@ au BufNewFile,BufRead *.js
     \ set softtabstop=2 |
     \ set shiftwidth=2
 
+" C indentation
+au BufNewFile,BufRead *.c
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4
+
 " Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufNewFile,BufRead *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -143,7 +154,10 @@ map <leader>y :call YAPF()<cr>
 
 "" ====== Plugins conf 
 
-colorscheme monokai
+"" https://shapeshed.com/vim-packages/#vim-8-brings-native-third-party-package-loading
+
+" colorscheme monokai
+colorscheme gruvbox 
 
 let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
@@ -167,3 +181,8 @@ let g:ale_lint_on_text_changed = 'never'
 " Using <c-space> for snippets " because <tab> is used by YouCompleteMe 
 let g:UltiSnipsExpandTrigger="<c-space>"
 
+" Ack: highlighting results
+let g:ackhighlight = 1
+
+" YouCompleteMe
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>

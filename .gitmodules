@@ -43,3 +43,6 @@
 [submodule "pack/plugins/start/auto-pairs"]
 	path = pack/plugins/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "pack/plugins/start/gruvbox"]
+	path = pack/plugins/start/gruvbox
+	url = https://github.com/morhetz/gruvbox
