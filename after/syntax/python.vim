@@ -7,4 +7,5 @@ hi PythonFunction ctermfg=004
 syntax match PythonSelf "self"
 hi PythonSelf ctermfg=118
 
-hi pythonComment ctermfg=248 cterm=italic
+" Remove comments when not using `gruvbox` colorscheme
+"hi pythonComment ctermfg=248 cterm=italic

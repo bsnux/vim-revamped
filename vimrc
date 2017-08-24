@@ -152,6 +152,9 @@ endfunction
 
 map <leader>y :call YAPF()<cr>
 
+" Encryption method
+set cm=blowfish2
+
 "" ====== Plugins conf 
 
 "" https://shapeshed.com/vim-packages/#vim-8-brings-native-third-party-package-loading
