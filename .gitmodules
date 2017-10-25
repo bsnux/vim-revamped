@@ -46,3 +46,9 @@
 [submodule "pack/plugins/start/gruvbox"]
 	path = pack/plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
+[submodule "pack/plugins/start/vim-railscasts-theme"]
+	path = pack/plugins/start/vim-railscasts-theme
+	url = git@github.com:jpo/vim-railscasts-theme.git
+[submodule "pack/plugins/start/vim-easymotion"]
+	path = pack/plugins/start/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion.git

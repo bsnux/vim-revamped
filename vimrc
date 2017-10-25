@@ -98,6 +98,11 @@ au BufNewFile,BufRead *.js
     \ set softtabstop=2 |
     \ set shiftwidth=2
 
+au BufNewFile,BufRead *.json
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2
+
 " C indentation
 au BufNewFile,BufRead *.c
     \ set tabstop=4 |

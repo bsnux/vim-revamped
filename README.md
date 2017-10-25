@@ -28,6 +28,15 @@ $ ln -s vim-revamped/after ~/.vim/after
 $ ln -s vim-revamped/pack ~/.vim/pack
 ```
 
+## How to install plugins using Vim 8
+
+Just clone *git* plugin repo as a *git submodule*. Example:
+
+```
+$ cd .vim/
+$ git submodule add https://github.com/easymotion/vim-easymotion.git pack/plugins/start/vim-easymotion/
+```
+
 ## Using italics in Terminal and iterm2
 
 See: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/
