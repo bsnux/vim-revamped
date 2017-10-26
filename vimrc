@@ -194,3 +194,9 @@ let g:ackhighlight = 1
 
 " YouCompleteMe
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" NerdCommenter: Switch comment by Ctrl+\
+map <silent> \ :call NERDComment('n', 'Toggle')<CR>
+map <silent> <C-\> :call NERDComment('n', 'Toggle')<CR>
+imap <silent> <C-\> <C-O>:call NERDComment('n', 'Toggle')<CR>
+

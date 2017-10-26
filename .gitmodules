@@ -52,3 +52,6 @@
 [submodule "pack/plugins/start/vim-easymotion"]
 	path = pack/plugins/start/vim-easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
+[submodule "pack/plugins/start/nerdcommenter"]
+	path = pack/plugins/start/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
