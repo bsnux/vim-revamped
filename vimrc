@@ -36,7 +36,7 @@ set t_Co=256
 " Highligthing searching
 set hlsearch
 
-" Highligthing incremental searching
+" Highligthing incremental searching. :nohls cancel it
 set incsearch
 
 " Emacs keys for command line
@@ -52,7 +52,9 @@ ca tn tabnew
 " netrw - the Vim 8 directory browser
 let g:netrw_liststyle = 3
 "     open file in new vertical split
-let g:netrw_browse_split = 2
+" let g:netrw_browse_split = 2
+"     open file in new tab
+let g:netrw_browse_split = 3
 let g:netrw_list_hide='.*\.swp$,.*\.pyc,*\~$,*\.swo$,*\.swp$,*\.git,.\git,*\.hg,*\.svn,*\.bzr,.\DStore,.\idea,.\build'
 let g:netrw_winsize = 25
 "     toggle Vexplore with Ctrl-E
@@ -139,11 +141,17 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+" Next line is required to use Go commands (`vim-go`)
+filetype plugin on
+
+" Using 4 spaces for displaying a tab in Go. Remember Go use tabs not spaces
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+
 " Templates w/ Django syntax
-augroup filetypedetect
-    au BufRead,BufNewFile dev-server setfiletype python
-    au BufRead,BufNewFile app-server setfiletype python
-augroup END
+"augroup filetypedetect
+    "au BufRead,BufNewFile dev-server setfiletype python
+    "au BufRead,BufNewFile app-server setfiletype python
+"augroup END
 
 " Google yapf Python formattert
 function! YAPF() range
@@ -163,9 +171,6 @@ set cm=blowfish2
 "" ====== Plugins conf 
 
 "" https://shapeshed.com/vim-packages/#vim-8-brings-native-third-party-package-loading
-
-" colorscheme monokai
-colorscheme gruvbox 
 
 let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
@@ -200,3 +205,14 @@ map <silent> \ :call NERDComment('n', 'Toggle')<CR>
 map <silent> <C-\> :call NERDComment('n', 'Toggle')<CR>
 imap <silent> <C-\> <C-O>:call NERDComment('n', 'Toggle')<CR>
 
+" Stop automatic wrapping
+set textwidth=120
+
+if has('gui_running')
+    " colorscheme railscasts
+    colorscheme onedark
+    " colorscheme monokai
+else 
+    " colorscheme onedark
+    colorscheme gruvbox 
+endif

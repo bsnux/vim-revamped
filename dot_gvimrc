@@ -1,3 +1,8 @@
-set guifont=Menlo:h12
+"set guifont=Menlo:h12
+set guifont=Consolas:h13
 set clipboard=unnamed
-colorscheme railscasts
+set autoread
+
+macmenu File.Save key=<nop>
+inoremap <D-s> <Esc>:w<CR><Right>
+vnoremap <D-s> <Esc>:w<CR>
