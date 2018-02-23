@@ -165,6 +165,10 @@ all occurrences will be replaced.
 $ vim scp://username@host//path/to/file
 ```
 
+## Easy motion
+
+* ` ,,w`: Activating easy motion
+
 ## Macros
 
 1. Start recording by pressing `q`, followed by a lower case character to name the macro
@@ -173,9 +177,24 @@ $ vim scp://username@host//path/to/file
 4. Play the recorded macro by pressing `@` followed by the macro name
 5. To repeat macros multiple times, press `:nn @macro_name`. ``nn`` is a number
 
+## Displaying indentation guides/lines
+
+```
+:set listchars=tab:\|\ 
+:set list
+```
+
+## Setting indentation to 4 spaces
+
+```
+:set tabstop=4
+:set shiftwidth=4
+```
+
 ## Misc
 
 * `:retab`: Replace tabs for spaces
 * `,fc`: Searching for conflict markers
 * `,y`: Google YAPF code formater
 * `X`: Encrypt file
+* `:%!python -m json.tool`: Format current JSON file
