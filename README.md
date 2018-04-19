@@ -21,11 +21,8 @@ $ git submodule update --init --recursive
 Create *symlinks* on your *HOME* dir:
 
 ```
-$ ln -s vim-revamped/vimrc ~/.vimrc 
-$ mkdir ~/.vim
-$ ln -s vim-revamped/UltiSnips ~/.vim/UltiSnips
-$ ln -s vim-revamped/after ~/.vim/after
-$ ln -s vim-revamped/pack ~/.vim/pack
+$ ln -s vim-revamped/.vim ~/.vim
+$ ln -s vim-revamped/.vimrc ~/.vimrc
 ```
 
 `YouCompleteme` plugins requires to run the following commands:

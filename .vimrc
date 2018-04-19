@@ -39,6 +39,8 @@ set hlsearch
 " Highligthing incremental searching. :nohls cancel it
 set incsearch
 
+set bg=dark
+
 " Emacs keys for command line
 cnoremap <C-A>	<Home>
 cnoremap <C-B>	<Left>
@@ -209,10 +211,9 @@ imap <silent> <C-\> <C-O>:call NERDComment('n', 'Toggle')<CR>
 set textwidth=120
 
 if has('gui_running')
-    " colorscheme railscasts
-    colorscheme onedark
-    " colorscheme monokai
+    colorscheme gruvbox
+    set guioptions-=T
+    set guioptions-=m
 else 
-    " colorscheme onedark
     colorscheme gruvbox 
 endif
