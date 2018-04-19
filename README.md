@@ -15,7 +15,7 @@ Update submodules:
 ```
 $ cd vim-revamped
 $ git submodule init
-$ git submodule update
+$ git submodule update --init --recursive
 ```
 
 Create *symlinks* on your *HOME* dir:
@@ -26,6 +26,13 @@ $ mkdir ~/.vim
 $ ln -s vim-revamped/UltiSnips ~/.vim/UltiSnips
 $ ln -s vim-revamped/after ~/.vim/after
 $ ln -s vim-revamped/pack ~/.vim/pack
+```
+
+`YouCompleteme` plugins requires to run the following commands:
+
+```
+$ cd pack/plugins/start/YouCompleteMe
+$ python install.py
 ```
 
 ## How to install plugins using Vim 8
